@@ -35,7 +35,7 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCwzs1SVQmNBgy4DxYk6i3SeZhJlN8Gk80'
+      apiKey: 'miapikey'
     }),
     app_rountig,
     AngularFireModule,

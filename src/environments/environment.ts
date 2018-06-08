@@ -5,12 +5,4 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyCy7_BA58q7sZXOv3M-UQNj2uBqJrwNvhk",
-    authDomain: "platzisquare-jbo-1528211458115.firebaseapp.com",
-    databaseURL: "https://platzisquare-jbo-1528211458115.firebaseio.com",
-    projectId: "platzisquare-jbo-1528211458115",
-    storageBucket: "platzisquare-jbo-1528211458115.appspot.com",
-    messagingSenderId: "194265337943"
-  }
 };
