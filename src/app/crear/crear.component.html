@@ -1,0 +1,48 @@
+<div class="alert alert-primary">
+  <a routerLink="/lugares">lugares</a>/ negocio nuevo
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card" style="background-color: aliceblue;">
+        <div class="card-body">
+          <h5 class="card-title">Creacion de negocio</h5>
+          <div class="card-body">
+            <label for="Nombre">Nombre</label>
+            <input type="text" id="Nombre" class="form-control" [(ngModel)]="lugar.nombre">
+            <label for="Plan">Plan</label>
+            <input type="text" id="Plan" class="form-control" [(ngModel)]="lugar.plan">
+            <label for="Plan">Calle y numero</label>
+            <input type="text" id="Plan" class="form-control" [(ngModel)]="lugar.direccion">
+            <label for="Plan">Ciudad</label>
+            <input type="text" id="Plan" class="form-control" [(ngModel)]="lugar.ciudad">
+            <label for="Plan">Pais</label>
+            <input type="text" id="Plan" class="form-control" [(ngModel)]="lugar.pais">
+            <label for="Mensaje">Descripción</label>
+            <textarea name="Mensaje" id="Mensaje" cols="15" rows="5" class="form-control" [(ngModel)]="lugar.descripcion"></textarea>
+          </div>
+          <a  class="card-link" style="cursor: pointer">Cancelar</a>
+          <a class="card-link"  (click)="guardarLugar()" style="cursor: pointer">Enviar</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card" style="background-color: aliceblue;">
+        <div class="card-img-top">
+          <agm-map [latitude]="lat" [longitude]="lng" style="height: 250px">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        </div>
+        <div class="card-body">
+          <address>
+            Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
+            Visit us at:<br>
+            Example.com<br>
+            Box 564, Disneyland<br>
+            USA
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

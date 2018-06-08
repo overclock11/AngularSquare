@@ -1,0 +1,26 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Lugares cercanos</h2>
+      <ul class="list-group" >
+        <ng-container *ngFor="let lugar of lugares; let i = index; odd as Par" [ngSwitch]="lugar.cercania" >
+          <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action:'view'}">
+            <li class="list-group-item" appContarClicks [ngStyle]="{color: (lugar.active) ? 'black' : 'gray'}" [ngClass]="{par: Par }" [appResaltar]="lugar.plan">
+              {{lugar.nombre}} -
+              <span *ngSwitchCase="1" [ngStyle]="{color:'green'}">Muy cercano</span>
+              <span *ngSwitchCase="2" [ngStyle]="{color:'blue'}">cercano</span>
+              <span *ngSwitchCase="3" [ngStyle]="{color:'red'}">Lejano</span>
+            </li>
+          </a>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h2>Destacados</h2>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="alert alert-primary">
+  <a routerLink="/lugares">lugares</a>/contacto
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card" style="background-color: aliceblue;">
+        <div class="card-body">
+          <h5 class="card-title">Contactenos</h5>
+          <p class="card-text">Dudas, sugerencias y felicitaciones</p>
+          <div class="card-body">
+            <label for="Nombre">Nombre</label>
+            <input type="text" id="Nombre" class="form-control">
+            <label for="Correo">Correo</label>
+            <input type="text" id="Correo" class="form-control">
+            <label for="Mensaje">Mensaje</label>
+            <textarea name="Mensaje" id="Mensaje" cols="15" rows="5" class="form-control"></textarea>
+          </div>
+          <a href="#" class="card-link">Cancelar</a>
+          <a href="#" class="card-link">Enviar</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card" style="background-color: aliceblue;">
+        <div class="card-img-top">
+          <agm-map [latitude]="lat" [longitude]="lng" style="height: 250px">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        </div>
+        <div class="card-body">
+          <address>
+            Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
+            Visit us at:<br>
+            Example.com<br>
+            Box 564, Disneyland<br>
+            USA
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
