@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AgmCoreModule} from '@agm/core';
 import { ResaltarDirective } from './directives/resaltar.directive';
 import { ContarClicksDirective } from './directives/contar-clicks.directive';
@@ -19,6 +19,12 @@ import { CrearComponent } from './crear/crear.component';
 import {AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {HttpClientModule} from '@angular/common/http';
+import { LinksPipe } from './pipes/links.pipe';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
+import {AutorizacionService} from './services/autorizacion.service';
+import {LogueadoGuard} from './services/logueado.guard';
 
 
 @NgModule({
@@ -29,13 +35,16 @@ import {HttpClientModule} from '@angular/common/http';
     DetalleComponent,
     LugaresComponent,
     ContactoComponent,
-    CrearComponent
+    CrearComponent,
+    LinksPipe,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'miapikey'
+
     }),
     app_rountig,
     AngularFireModule,
@@ -43,9 +52,11 @@ import {HttpClientModule} from '@angular/common/http';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
-  providers: [LugaresServiceService, AngularFireDatabase],
+  providers: [LugaresServiceService, AngularFireDatabase, AutorizacionService, LogueadoGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

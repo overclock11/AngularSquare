@@ -16,6 +16,10 @@
         <a class="nav-link" routerLink="/crear">Crear negocio</a>
       </li>
     </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a class="nav-link" routerLink="/login">Login</a>
+      <a class="nav-link" routerLink="/registro" *ngIf="!loggedIn">Registro</a>
+    </form>
   </div>
 </nav>
 <router-outlet></router-outlet>

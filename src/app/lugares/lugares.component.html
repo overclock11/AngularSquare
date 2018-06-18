@@ -1,5 +1,5 @@
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <agm-marker *ngFor="let lugar of lugares;" [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
 </agm-map>
 <hr>
 <div class="container">
@@ -7,20 +7,34 @@
     <div class="col-md-8">
       <h2>Lugares cercanos</h2>
       <ul class="list-group" >
-        <ng-container *ngFor="let lugar of lugares; let i = index; odd as Par" [ngSwitch]="lugar.cercania" >
-          <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action:'view'}">
+        <ng-container *ngFor="let lugar of lugares; let i = index; odd as Par">
             <li class="list-group-item" appContarClicks [ngStyle]="{color: (lugar.active) ? 'black' : 'gray'}" [ngClass]="{par: Par }" [appResaltar]="lugar.plan">
-              {{lugar.nombre}} -
-              <span *ngSwitchCase="1" [ngStyle]="{color:'green'}">Muy cercano</span>
-              <span *ngSwitchCase="2" [ngStyle]="{color:'blue'}">cercano</span>
-              <span *ngSwitchCase="3" [ngStyle]="{color:'red'}">Lejano</span>
+              <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action:'view'}">
+                {{lugar.nombre}}
+              </a>
+              <p [innerHtml]="lugar.descripcion | links"></p>
             </li>
-          </a>
         </ng-container>
       </ul>
     </div>
     <div class="col-md-4">
       <h2>Destacados</h2>
+      <ng-container *ngFor="let lugar of lugares; let i = index; odd as Par">
+        <div class="bg-danger padding" *ngIf="lugar.plan=='pago'" [ngStyle]="{color: (lugar.active) ? 'black' : 'gray'}" [ngClass]="{par: Par }" [appResaltar]="lugar.plan">
+          <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action:'view'}">
+            {{lugar.nombre}}
+          </a>
+          <p [innerHtml]="lugar.descripcion | links"></p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="cuadrado" [@contenedorAnimable]="state" (@contenedorAnimable.start)="animacionInicia($event)" (@contenedorAnimable.done)="animacionTermina($event)">
+
+      </div>
+      <button class="btn btn-success" (click)="animar()">Cambiar estado</button>
     </div>
   </div>
 </div>
