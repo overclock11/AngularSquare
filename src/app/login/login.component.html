@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-4">
+      <label for="Email">Email</label>
+      <input type="text" class="form-control" id="Email" [(ngModel)]="email">
+      <label for="Password">Password</label>
+      <input type="text" class="form-control" id="Password" [(ngModel)]="password">
+      <hr>
+      <a class="btn btn-primary" (click)="login()">Ingresar</a>
+      <a class="btn btn-warning" (click)="logout()">Logout</a>
+    </div>
+  </div>
+</div>
